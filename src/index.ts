@@ -17,15 +17,13 @@ app.get('/', (_req: Request, res: Response) => {
 
 app.post('/transliteration', (req: Request, res: Response) => {
 	const { message } = req.body
-	console.log(message)
 
 	if (!message) return res.end()
-	console.log(message)
 
 	axios
 		.post(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
 			chat_id: message.chat.id,
-			text: transliterate(message)
+			text: transliterate(message.text)
 		})
 		.then(() => {
 			console.log('message posted')
