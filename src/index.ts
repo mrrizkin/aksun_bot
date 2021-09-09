@@ -24,7 +24,8 @@ app.post('/transliteration', (req: Request, res: Response) => {
 		axios
 			.post(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
 				chat_id: message.chat.id,
-				text: 'Wilujeung sumping ^-^\nWasta abdi Aksun (Aksara Sunda)\n\nTugas abdi nyaeta ngaubah tulisan anu ku anjeun dikirimkeun ka abdi kana tulisan aksara sunda\n**mangga cobian**'
+				text: 'Wilujeung sumping ^-^\nWasta abdi Aksun (Aksara Sunda)\n\nTugas abdi nyaeta ngaubah tulisan anu ku anjeun dikirimkeun ka abdi kana tulisan aksara sunda\n**mangga cobian**',
+				parse_mode: 'MarkdownV2'
 			})
 			.then(() => {
 				console.log('message posted')
@@ -34,6 +35,7 @@ app.post('/transliteration', (req: Request, res: Response) => {
 				console.log('Error:', err)
 				res.end('Error: ' + err)
 			})
+		return
 	}
 
 	axios
