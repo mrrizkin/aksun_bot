@@ -11,7 +11,7 @@ const sundaahir = (huruf: string): string => {
 }
 
 export default (iStr: string) => {
-	console.log('hello')
+	console.log(iStr)
 	let latin = iStr.toLowerCase()
 
 	const iLength = latin.length
