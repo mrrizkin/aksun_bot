@@ -19,24 +19,7 @@ app.post('/transliteration', (req: Request, res: Response) => {
 	const { message } = req.body
 
 	if (!message) return res.end()
-
-	if (message.text === '/start') {
-		axios
-			.post(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
-				chat_id: message.chat.id,
-				text: '*Wilujeung sumping*\n\nWasta abdi Aksun (Aksara Sunda)\n\nTugas abdi nyaeta ngaubah tulisan anu ku anjeun dikirimkeun ka abdi kana tulisan aksara sunda\n*mangga cobian*',
-				parse_mode: 'MarkdownV2'
-			})
-			.then(() => {
-				console.log('message posted')
-				res.end('ok')
-			})
-			.catch((err) => {
-				console.log('Error:', err)
-				res.end('Error: ' + err)
-			})
-		return res.end()
-	}
+	if (message.text === '/start') return res.end()
 
 	axios
 		.post(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
