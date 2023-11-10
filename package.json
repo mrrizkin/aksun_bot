@@ -24,7 +24,7 @@
 	},
 	"homepage": "https://github.com/nugrhrizki/aksun_bot#readme",
 	"dependencies": {
-		"axios": "^0.21.4",
+		"axios": "^1.6.0",
 		"dotenv-safe": "^8.2.0",
 		"express": "^4.17.1"
 	},
